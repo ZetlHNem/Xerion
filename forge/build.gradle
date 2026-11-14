@@ -1,0 +1,86 @@
+plugins {
+    id 'net.minecraftforge.gradle' version "${forge_gradle_version}"
+}
+
+base {
+    archivesName = "${mod_id}-forge"
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+configurations {
+    embedded
+    implementation.extendsFrom(embedded)
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation project(':common')
+    embedded 'javazoom:jlayer:1.0.1'
+    def embeddiumJar = file('E:/PCL/.minecraft/versions/1.20.1-Forge_47.4.20/mods/embeddium-0.3.31+mc1.20.1.jar')
+    if (embeddiumJar.exists()) {
+        compileOnly files(embeddiumJar)
+    }
+    def taczJar = file('E:/PCL/.minecraft/versions/1.20.1-Forge_47.4.20/mods/tacz-1.20.1-1.1.8-hotfix.jar')
+    if (taczJar.exists()) {
+        compileOnly files(taczJar)
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'minecraft_version', minecraft_version
+    inputs.property 'mod_id', mod_id
+    inputs.property 'mod_name', mod_name
+
+    filesMatching('META-INF/mods.toml') {
+        expand(
+                version: project.version,
+                minecraft_version: minecraft_version,
+                mod_id: mod_id,
+                mod_name: mod_name
+        )
+    }
+
+    exclude 'assets/xerion/fonts/*_msdf.png'
+    exclude 'assets/xerion/fonts/*_msdf.json'
+    exclude 'assets/xerion/tools/msdf_atlas_gen.exe'
+}
+
+jar {
+    from {
+        configurations.embedded.collect { dependency ->
+            zipTree(dependency)
+        }
+    }
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+    from(project(':common').sourceSets.main.output)
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : 'example',
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.version,
+                'Implementation-Vendor'   : 'example',
+                'MixinConfigs'            : 'xerion.forge.mixins.json'
+        ])
+    }
+}

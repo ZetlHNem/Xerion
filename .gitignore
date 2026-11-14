@@ -1,0 +1,35 @@
+.gradle/
+build/
+out/
+run/
+*.iml
+.idea/
+
+common/build/
+fabric/build/
+fabric/run/
+forge/build/
+forge/run/
+neoforge/build/
+neoforge/run/
+
+# local agent/tooling caches and runtime output
+.ae-tools/
+.serena/
+.ae-video-metadata.json
+build-logs/
+output/
+logs/
+*.log
+
+# stray decompiled sources / local dev artifacts
+net/
+*.exe
+*.zip
+*.tgz
+tools/msdf-atlas-gen/msdf-atlas-gen/
+tools/msdf-atlas-gen/free-solid-svg-icons/package/
+
+# OS noise
+Thumbs.db
+.DS_Store

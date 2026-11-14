@@ -1,0 +1,16 @@
+#version 150
+
+in vec3 Position;
+in vec2 UV0;
+
+out vec2 vUV;
+out vec2 vLocal;
+
+uniform mat4 ModelViewMat;
+uniform mat4 ProjMat;
+
+void main() {
+    vUV = UV0;
+    vLocal = UV0;
+    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
+}

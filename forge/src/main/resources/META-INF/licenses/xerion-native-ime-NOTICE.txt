@@ -1,0 +1,8 @@
+Xerion includes the unmodified Windows JNI binaries from ContingameIME,
+branch 1.20.1/dev, commit 8c8a97d826e11e075d0e10df2da69acff03591a0.
+
+Project source: https://github.com/ThinkingStudios/ContingameIME
+License: GNU Lesser General Public License, version 2.1
+
+The native library is dynamically loaded from a temporary file. Xerion's Java
+integration code is separate from and does not modify the native library.
