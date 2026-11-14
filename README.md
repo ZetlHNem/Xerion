@@ -1,25 +1,37 @@
 # Xerion
 
-A Minecraft **1.20.1 Forge** mod built around a custom in-game dashboard, a
-lightweight rendering pipeline and a modular feature framework.
+A modular **Minecraft 1.20.1 Forge** mod focused on PvP combat, movement,
+visual and world utility modules.
 
 Java 17 · Forge 47.x
 
-> Xerion —— Minecraft 1.20.1 Forge 模组：自研游戏内面板 UI、渲染管线与模块化功能框架。
+> Xerion —— Minecraft 1.20.1 Forge 模组：以 PvP 战斗、移动、视觉与世界功能模块为核心，
+> 配套自研游戏内面板 UI。
 
-## Highlights
+## Feature modules
 
-- **In-game dashboard** — an immediate-mode UI layer with its own layout, animation,
-  popup and HUD widgets, drawn through custom shader primitives instead of vanilla
-  screens.
-- **Rendering pipeline** — shared render abstractions plus custom shaders for
-  overlays, glow, chams and post-processing effects.
-- **Modular feature framework** — features are registered as modules with their own
-  settings, persisted through a profile/config store.
-- **Mixin integration layer** — a single Forge mixin package wires the mod into
-  client, network and render entry points (1.20.1 SRG member names).
-- **Loader-agnostic core** — `common` contains no Minecraft or Forge imports; the
-  Forge module translates platform events into the shared event model.
+Every feature is an independent module with its own settings and hotkey binding; module
+state and settings are persisted through the config store.
+
+| Category | Modules |
+| --- | --- |
+| Combat | Kill Aura, Criticals, Knockback, WTap, Reach, Backtrack, Fake Lag, Velocity, Auto Crystal, Bed Aura, Anchor Aura, Web Aura, Auto Trap, Surround, Hole Fill |
+| Movement | Speed, Flight, Elytra Fly, Step, Long Jump, High Jump, Jesus, Spider, Scaffold, Blink, Stuck, No Slow, Safe Walk |
+| Visual / ESP | ESP, Xray, Chams, Freecam, Zoom, Fullbright, No Fog, Time Changer, View Model |
+| World | Auto Mine, Nuker, Vein Miner, Breaker, Fast Break, Fast Web |
+| Player | Auto Totem, Auto Armor, Auto Heal, Auto Pearl, Auto EXP, Auto Weapon, Chest Steal, Inventory Cleaner |
+| Compatibility | Compatibility, Disabler, Ping Spoof, No Rotate |
+
+## Components
+
+- **In-game dashboard** — immediate-mode UI for browsing modules, editing settings and
+  managing profiles, rendered with custom shader primitives.
+- **Rendering pipeline** — shared render abstractions and custom shaders for overlays,
+  glow, chams and post-processing.
+- **Mixin layer** — a single Forge mixin package wires the modules into client, network
+  and render entry points (1.20.1 SRG member names).
+- **Loader-agnostic core** — `common` contains no Minecraft or Forge imports; the Forge
+  module translates platform events into the shared event model.
 
 ## Repository layout
 
@@ -45,6 +57,6 @@ The build produces `forge/build/libs/xerion-forge-<version>.jar`; drop it into
 
 - `common` intentionally has no Minecraft or Forge imports; platform events are
   translated by the Forge adapter and rendering is exposed through `RenderContext`.
-- Mixin targets use 1.20.1 SRG member names (`m_…_` / `f_…_`) because the mod is
-  built for the production runtime.
+- Mixin targets use 1.20.1 SRG member names (`m_…_` / `f_…_`) because the mod is built
+  for the production runtime.
 - See `docs/` for the architecture, migration and naming reports.
