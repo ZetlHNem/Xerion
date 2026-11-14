@@ -39,7 +39,6 @@ state and settings are persisted through the config store.
 | --- | --- |
 | `common/` | Loader-free core: modules, events, render abstractions, state, config models |
 | `forge/` | Forge `@Mod` entry point, event adapters, mixins, client implementation |
-| `docs/` | Architecture reports and development notes |
 | `tools/` | Font / atlas generation helpers used by the UI |
 
 ## Building
@@ -59,4 +58,3 @@ The build produces `forge/build/libs/xerion-forge-<version>.jar`; drop it into
   translated by the Forge adapter and rendering is exposed through `RenderContext`.
 - Mixin targets use 1.20.1 SRG member names (`m_…_` / `f_…_`) because the mod is built
   for the production runtime.
-- See `docs/` for the architecture, migration and naming reports.

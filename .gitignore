@@ -22,6 +22,10 @@ output/
 logs/
 *.log
 
+# internal notes / feature docs are kept local, not published
+docs/
+combat_features_cn.txt
+
 # stray decompiled sources / local dev artifacts
 net/
 *.exe
