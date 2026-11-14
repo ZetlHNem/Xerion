@@ -1,30 +1,50 @@
 # Xerion
 
-Java 17 Minecraft mod for Forge.
+A Minecraft **1.20.1 Forge** mod built around a custom in-game dashboard, a
+lightweight rendering pipeline and a modular feature framework.
 
-## Architecture
+Java 17 · Forge 47.x
 
-- `common`: loader-free core logic. It owns modules, events, render abstractions, state, and config models.
-- `forge`: Forge `@Mod` entrypoint and event adapters.
+> Xerion —— Minecraft 1.20.1 Forge 模组：自研游戏内面板 UI、渲染管线与模块化功能框架。
 
-`common` intentionally does not import any Minecraft or Forge classes. The Forge module translates platform events into common events and exposes platform-specific rendering through `RenderContext`.
+## Highlights
 
-## IntelliJ IDEA
+- **In-game dashboard** — an immediate-mode UI layer with its own layout, animation,
+  popup and HUD widgets, drawn through custom shader primitives instead of vanilla
+  screens.
+- **Rendering pipeline** — shared render abstractions plus custom shaders for
+  overlays, glow, chams and post-processing effects.
+- **Modular feature framework** — features are registered as modules with their own
+  settings, persisted through a profile/config store.
+- **Mixin integration layer** — a single Forge mixin package wires the mod into
+  client, network and render entry points (1.20.1 SRG member names).
+- **Loader-agnostic core** — `common` contains no Minecraft or Forge imports; the
+  Forge module translates platform events into the shared event model.
 
-Open this directory as a Gradle project:
+## Repository layout
 
-```text
-F:\IDEA Projects\Xerion
+| Path | Purpose |
+| --- | --- |
+| `common/` | Loader-free core: modules, events, render abstractions, state, config models |
+| `forge/` | Forge `@Mod` entry point, event adapters, mixins, client implementation |
+| `docs/` | Architecture reports and development notes |
+| `tools/` | Font / atlas generation helpers used by the UI |
+
+## Building
+
+Requires JDK 17 and a Forge 1.20.1 development environment.
+
+```bash
+./gradlew :forge:build
 ```
 
-After Gradle import, use the generated loader launch tasks/configurations. If IDEA does not show them immediately, run Gradle sync and then execute the relevant launch task once from the Gradle tool window.
+The build produces `forge/build/libs/xerion-forge-<version>.jar`; drop it into
+`.minecraft/mods` of a 1.20.1 Forge 47.x instance.
 
-## Event Forwarding
+## Development notes
 
-Loader callbacks are translated as follows:
-
-- Forge tick callback -> `TickEvent.RuntimeStart` / `TickEvent.RuntimeEnd`
-- Forge `RenderGuiEvent.Post` -> `RenderEvent.Hud`
-- Forge world render callbacks -> `RenderEvent.World`
-
-The starter `CoordinatesHudModule` renders through `RenderContext`, so it works through the Forge adapter without importing loader APIs.
+- `common` intentionally has no Minecraft or Forge imports; platform events are
+  translated by the Forge adapter and rendering is exposed through `RenderContext`.
+- Mixin targets use 1.20.1 SRG member names (`m_…_` / `f_…_`) because the mod is
+  built for the production runtime.
+- See `docs/` for the architecture, migration and naming reports.
