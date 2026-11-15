@@ -17,6 +17,12 @@ visual and world utility modules.</p>
 
 </div>
 
+> [!WARNING]
+> **This project is no longer maintained.** No further updates, bug fixes or support will be
+> provided; the code is published as-is for reference.
+>
+> **本项目已停止维护与更新**，不再更新、修复或提供支持，代码按现状仅供查阅。
+
 ---
 
 ## Feature modules
