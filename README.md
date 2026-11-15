@@ -45,10 +45,9 @@ Module state and settings are persisted through the config store.
   <img src="screenshots/title.png" width="860" alt="Xerion title screen" />
 </p>
 
-<p align="center">
-  <img src="screenshots/dashboard-light.png" width="410" alt="Dashboard (light theme)" />
-  <img src="screenshots/dashboard-dark.png" width="410" alt="Dashboard (dark theme)" />
-</p>
+| Dashboard · light theme | Dashboard · dark theme |
+| :---: | :---: |
+| ![Dashboard (light theme)](screenshots/dashboard-light.png) | ![Dashboard (dark theme)](screenshots/dashboard-dark.png) |
 
 <p align="center">
   <img src="screenshots/visual-chams.png" width="560" alt="Visual / Chams settings" />
