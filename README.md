@@ -43,11 +43,11 @@ Module state and settings are persisted through the config store.
 
 | Dashboard · light theme | Dashboard · dark theme |
 | :---: | :---: |
-| ![Dashboard (light theme)](screenshots/dashboard-light.png) | ![Dashboard (dark theme)](screenshots/dashboard-dark.png) |
+| <img src="screenshots/dashboard-light.png" width="300" alt="Dashboard (light theme)" /> | <img src="screenshots/dashboard-dark.png" width="300" alt="Dashboard (dark theme)" /> |
 
 | Title screen | Visual / Chams settings |
 | :---: | :---: |
-| ![Xerion title screen](screenshots/title.png) | ![Visual / Chams settings](screenshots/visual-chams.png) |
+| <img src="screenshots/title.png" width="300" alt="Xerion title screen" /> | <img src="screenshots/visual-chams.png" width="300" alt="Visual / Chams settings" /> |
 
 ## Components
 
