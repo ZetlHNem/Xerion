@@ -39,6 +39,19 @@ Module state and settings are persisted through the config store.
 | **Player** | Auto Totem · Auto Armor · Auto Heal · Auto Pearl · Auto EXP · Auto Weapon · Chest Steal · Inventory Cleaner |
 | **Compatibility** | Compatibility · Disabler · Ping Spoof · No Rotate |
 
+## Screenshots
+
+<img src="screenshots/title.png" alt="Xerion title screen" width="100%" />
+
+<p align="center">
+  <img src="screenshots/dashboard-light.png" width="49%" alt="Dashboard (light theme)" />
+  <img src="screenshots/dashboard-dark.png" width="49%" alt="Dashboard (dark theme)" />
+</p>
+
+<p align="center">
+  <img src="screenshots/visual-chams.png" width="66%" alt="Visual / Chams settings" />
+</p>
+
 ## Components
 
 | Component | Description |
@@ -52,9 +65,10 @@ Module state and settings are persisted through the config store.
 
 ```text
 Xerion
-├── common/     loader-free core: modules, events, render abstractions, state, config models
-├── forge/      Forge @Mod entry point, event adapters, mixins, client implementation
-└── tools/      font / atlas generation helpers used by the UI
+├── common/        loader-free core: modules, events, render abstractions, state, config models
+├── forge/         Forge @Mod entry point, event adapters, mixins, client implementation
+├── screenshots/   README screen captures
+└── tools/         font / atlas generation helpers used by the UI
 ```
 
 ## Build
