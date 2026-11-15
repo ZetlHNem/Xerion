@@ -28,6 +28,7 @@ combat_features_cn.txt
 
 # stray decompiled sources / local dev artifacts
 net/
+libs/
 *.exe
 *.zip
 *.tgz

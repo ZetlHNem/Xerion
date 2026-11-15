@@ -58,6 +58,18 @@ Xerion
 - JDK 17
 - A Forge 1.20.1 development environment
 
+**Dependencies**
+
+Embeddium and TaCZ are compile-time integrations and are not bundled. Gradle resolves
+them from Modrinth; for offline builds place the jars in `libs/`:
+
+```text
+libs/embeddium-0.3.31+mc1.20.1.jar
+libs/tacz-1.20.1-1.1.8-hotfix.jar
+```
+
+or pass `-PembeddiumJar=/path/to/jar -PtaczJar=/path/to/jar`.
+
 **Build**
 
 ```bash
